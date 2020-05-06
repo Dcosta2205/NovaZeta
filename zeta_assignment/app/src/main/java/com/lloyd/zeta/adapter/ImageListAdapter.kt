@@ -4,10 +4,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lloyd.zeta.R
-import com.lloyd.zeta.viewholder.ImageListViewHolder
 import com.lloyd.zeta.interfaces.ImageClickListener
+import com.lloyd.zeta.models.Item
+import com.lloyd.zeta.viewholder.ImageListViewHolder
 
-class ImageListAdapter(private val imageClickListener: ImageClickListener) :
+class ImageListAdapter(
+    private val imageClickListener: ImageClickListener,
+    private val itemsList: List<Item>
+) :
     RecyclerView.Adapter<ImageListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageListViewHolder {
@@ -17,10 +21,10 @@ class ImageListAdapter(private val imageClickListener: ImageClickListener) :
     }
 
     override fun getItemCount(): Int {
-        return 0
+        return itemsList.size
     }
 
     override fun onBindViewHolder(holder: ImageListViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.onBind(itemsList[position])
     }
 }

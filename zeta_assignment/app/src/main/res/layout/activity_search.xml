@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_25"
+        android:paddingStart="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_8"
         android:layout_marginEnd="@dimen/dp_25"
         android:background="@drawable/search_text_bg"
         android:hint="@string/enter_a_search_query"

@@ -20,14 +20,11 @@ class SearchViewModel : ViewModel() {
         disposable = searchRepository.callSearchApi(searchQuery)
             .map {
                 return@map it.items
-            }.toObservable()
-            .flatMapIterable {
-                it
             }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                mutableLiveData.value = ImageUIModel.OnSuccess(it?.pagemap)
+                mutableLiveData.value = ImageUIModel.OnSuccess(it)
             }, {
                 mutableLiveData.value = ImageUIModel.OnFailure(it.message)
             })

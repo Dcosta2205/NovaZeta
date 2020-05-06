@@ -1,13 +1,17 @@
 package com.lloyd.zeta.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.lloyd.zeta.R
+import com.lloyd.zeta.Utils.BUNDLE_PAGEMAP
 import com.lloyd.zeta.models.ImageUIModel
+import com.lloyd.zeta.models.Item
 import com.lloyd.zeta.viewmodels.SearchViewModel
 import kotlinx.android.synthetic.main.activity_search.*
 
@@ -22,13 +26,18 @@ class SearchActivity : BaseActivity() {
         searchViewModel.liveData.observe(this, Observer { imageUiModel ->
             when (imageUiModel) {
                 is ImageUIModel.OnSuccess -> {
-                    imageUiModel.pageMap?.cseThumbnail?.forEach {
-                        Log.d("Lloyd", " Image url is " + it?.width)
+                    val itemsList = ArrayList<Item>()
+                    imageUiModel.itemsList?.forEach { item ->
+                        item?.let { it -> itemsList.add(it) }
                     }
+
+                    val intent = Intent(this@SearchActivity, ImageListActivity::class.java)
+                    intent.putExtra(BUNDLE_PAGEMAP, itemsList)
+                    startActivity(intent)
                 }
 
                 is ImageUIModel.OnFailure -> {
-                    Log.d("Lloyd ", " Error occurred while searching ${imageUiModel.errorMessage}")
+                    Toast.makeText(this, imageUiModel.errorMessage, Toast.LENGTH_SHORT).show()
                 }
             }
         })

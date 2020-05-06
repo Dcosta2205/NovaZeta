@@ -9,7 +9,6 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutResourceId())
         initListeners()
-
     }
 
     abstract fun getLayoutResourceId(): Int
