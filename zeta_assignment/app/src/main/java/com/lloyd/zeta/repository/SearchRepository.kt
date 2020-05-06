@@ -4,8 +4,8 @@ import com.lloyd.zeta.Utils.API_KEY
 import com.lloyd.zeta.Utils.cx
 import com.lloyd.zeta.models.ImageResponseModel
 import io.reactivex.Single
-import network.ApiInterface
-import network.RetrofitService
+import com.lloyd.zeta.network.ApiInterface
+import com.lloyd.zeta.network.RetrofitService
 
 class SearchRepository {
 

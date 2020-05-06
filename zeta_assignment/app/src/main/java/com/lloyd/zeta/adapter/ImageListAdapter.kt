@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lloyd.zeta.R
 import com.lloyd.zeta.viewholder.ImageListViewHolder
-import interfaces.ImageClickListener
+import com.lloyd.zeta.interfaces.ImageClickListener
 
 class ImageListAdapter(private val imageClickListener: ImageClickListener) :
     RecyclerView.Adapter<ImageListViewHolder>() {

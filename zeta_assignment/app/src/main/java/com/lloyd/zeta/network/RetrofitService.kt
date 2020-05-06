@@ -1,4 +1,4 @@
-package network
+package com.lloyd.zeta.network
 
 import com.lloyd.zeta.Utils.BASE_URL
 import okhttp3.OkHttpClient

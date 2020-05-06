@@ -1,4 +1,4 @@
-package network
+package com.lloyd.zeta.network
 
 import com.lloyd.zeta.models.ImageResponseModel
 import io.reactivex.Single
